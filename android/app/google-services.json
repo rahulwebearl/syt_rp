@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "894958256413",
+    "project_id": "start-your-tour-e1557",
+    "storage_bucket": "start-your-tour-e1557.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:894958256413:android:44e10d809ede4d011921f4",
+        "android_client_info": {
+          "package_name": "com.StartYourTour"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "894958256413-8gcljfi03rtj0cfaodf6k07858g0ane7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.StartYourTour",
+            "certificate_hash": "2003e220826a6d7066e81dc1f0c0c5b433c18e2b"
+          }
+        },
+        {
+          "client_id": "894958256413-4d0apcjt8ofat9qiahudqi6kp0j2j5eg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDudIc2L5sZehvxGRPdlgaQ7DFToLRxqEE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "894958256413-4d0apcjt8ofat9qiahudqi6kp0j2j5eg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
