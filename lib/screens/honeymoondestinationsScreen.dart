@@ -469,8 +469,8 @@ class _HoneymoonDestinationsState extends State<HoneymoonDestinations> {
                                 ],
                               );
                             } else if (receveRadiovalues3 == "10000") {
-                              if (server.package! == 11589) {
-                                // print("price : " + server.package.toString());
+                              if (server.package! <= 10000) {
+                                // print("price : " + server.package.toString());S
                                 //  print("10000:" + receveRadiovalues3);
 
                                 print(server.package.toString() +
