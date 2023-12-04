@@ -273,6 +273,17 @@ class _HomeScreenState extends State<HomeScreen> {
                                                     onTap: () async {
                                                       // print(
                                                       //     "Pressed Looking for");
+                                                      final SharedPreferences
+                                                          prefs = await _prefs;
+                                                      prefs.setString(
+                                                          "radiogroup1", "");
+
+                                                      prefs.setString(
+                                                          "radiogroup3", "");
+
+                                                      prefs.setString(
+                                                          "radiogroup4", "");
+
                                                       var cat_id = snapshots
                                                           .data
                                                           ?.data?[index]
@@ -286,8 +297,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                                           .categoryName
                                                           .toString();
 
-                                                      final SharedPreferences
-                                                          prefs = await _prefs;
                                                       prefs.setString(
                                                           "cat_id", cat_id!);
                                                       prefs.setString(
@@ -504,7 +513,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                               destination_placeToVisit!);
 
                                                           print(
-                                                              'Forward to MostLoved Destination');
+                                                              'Forward to MostLoved Destination class PackagesScreen');
                                                           Navigator.of(context).push(
                                                               MaterialPageRoute(
                                                                   builder:

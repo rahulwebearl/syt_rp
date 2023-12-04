@@ -840,7 +840,7 @@ class _PackagesScreenState extends State<PackagesScreen> {
                   ? ListView.builder(
                       itemCount: snapshots.data?.data?.length,
                       itemBuilder: (context, index) {
-                        var server = snapshots.data?.data?[index] ;
+                        var server = snapshots.data?.data?[index];
                         var _travel1 =
                             server?.destination?.howToReach.toString();
                         print(_travel1);
@@ -849,46 +849,40 @@ class _PackagesScreenState extends State<PackagesScreen> {
                         return Container(
                           height: 100.h,
                           child: NestedScrollView(
-                              headerSliverBuilder: (BuildContext context,
-                                  bool innerBoxIsScrolled) {
-                                return [
-                                  SliverAppBar(
-                                      leading: IconButton(
-                                        onPressed: () {
-                                          Navigator.pop(context);
-                                        },
-                                        icon: Icon(
-                                          Icons.arrow_back,
-                                          color: Color(0xffffffff),
-                                        ),
+                            headerSliverBuilder: (BuildContext context,
+                                bool innerBoxIsScrolled) {
+                              return [
+                                SliverAppBar(
+                                    leading: IconButton(
+                                      onPressed: () {
+                                        Navigator.pop(context);
+                                      },
+                                      icon: Icon(
+                                        Icons.arrow_back,
+                                        color: Color(0xffffffff),
                                       ),
-                                      titleSpacing: 2.w,
-                                      floating: true,
-                                      pinned: true,
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.only(
-                                              bottomRight:
-                                                  Radius.circular(15),
-                                              bottomLeft:
-                                                  Radius.circular(15))),
-                                      backgroundColor: Color(0xff00363D),
-                                      expandedHeight: 30.h,
-                                      flexibleSpace: LayoutBuilder(builder:
-                                          (context,
-                                              BoxConstraints constraints) {
-                                        this.top = constraints.biggest.height;
-                                        print(top);
-                                        return ClipRRect(
-                                          borderRadius: BorderRadius.only(
-                                              bottomRight:
-                                                  Radius.circular(15),
-                                              bottomLeft:
-                                                  Radius.circular(15)),
-                                          child: FlexibleSpaceBar(
+                                    ),
+                                    titleSpacing: 2.w,
+                                    floating: true,
+                                    pinned: true,
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.only(
+                                            bottomRight: Radius.circular(15),
+                                            bottomLeft: Radius.circular(15))),
+                                    backgroundColor: Color(0xff00363D),
+                                    expandedHeight: 30.h,
+                                    flexibleSpace: LayoutBuilder(builder:
+                                        (context, BoxConstraints constraints) {
+                                      this.top = constraints.biggest.height;
+                                      print(top);
+                                      return ClipRRect(
+                                        borderRadius: BorderRadius.only(
+                                            bottomRight: Radius.circular(15),
+                                            bottomLeft: Radius.circular(15)),
+                                        child: FlexibleSpaceBar(
                                             titlePadding: EdgeInsets.only(
                                                 left: (top < 100) ? 50 : 10,
-                                                bottom:
-                                                    (top < 100) ? 20 : 10),
+                                                bottom: (top < 100) ? 20 : 10),
                                             title: Text(
                                               //"CANADA",
                                               destination_name,
@@ -902,8 +896,11 @@ class _PackagesScreenState extends State<PackagesScreen> {
                                             ),
                                             //background: Image.network("https://start-your-tour-api.herokuapp.com/images/placephoto/Chandra Taal.jpg",fit: BoxFit.fill),
                                             background: CachedNetworkImage(
-                                              errorWidget: (context, url, error) => Text(""),
-                                              imageUrl: "${server?.destination?.photo}",
+                                              errorWidget:
+                                                  (context, url, error) =>
+                                                      Text(""),
+                                              imageUrl:
+                                                  "${server?.destination?.photo}",
                                               fit: BoxFit.cover,
                                             )
                                             // Image.network(
@@ -911,712 +908,771 @@ class _PackagesScreenState extends State<PackagesScreen> {
                                             //         .toString(),
                                             //     fit: BoxFit.cover),
                                             // background: Image.network(destination_placeToVisit,fit: BoxFit.cover),
-                                          ),
-                                        );
-                                      }))
-                                ];
-                              },
-                              body: Container(
-                                color: Colors.white,
-                                child: ListView(
-                                  children: [
-                                    Column(
-                                      children: [
-                                        Padding(
-                                          padding: EdgeInsets.only(
-                                              left: 11,
-                                              right: 11,
-                                              bottom: 25,
-                                              top: 20),
-                                          child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: [
-                                                  Text(
-                                                    "Best Time to Visit",
-                                                    style: TextStyle(
-                                                        fontSize: 12,
-                                                        fontFamily: "SegoeUI",
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        color: Colors.black),
-                                                  ),
-                                                  Text(
-                                                    "Starting From",
-                                                    style: TextStyle(
-                                                        fontSize: 12,
-                                                        fontFamily: "SegoeUI",
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        color: Colors.black),
-                                                  ),
-                                                ],
-                                              ),
-                                              Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: [
-                                                  Text(
-                                                    //"Oct - Fab (550 Bookings)",
-                                                    server?.destination!
-                                                        .bestTimeForVisit
-                                                        .toString() ?? '',
-                                                    style: TextStyle(
-                                                        fontSize: 12,
-                                                        fontFamily: "SegoeUI",
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        color: Colors.grey),
-                                                  ),
-                                                  Text(
-                                                    // "₹ 1070/ Month",
-                                                    "₹ " +
-                                                        "${server?.packages?[index].pricePerPerson ?? "0"}"
-                                                             +
-                                                        "/Person",
-                                                    style: TextStyle(
+                                            ),
+                                      );
+                                    }))
+                              ];
+                            },
+                            body: Container(
+                              color: Colors.white,
+                              child: ListView(
+                                children: [
+                                  Column(
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsets.only(
+                                            left: 11,
+                                            right: 11,
+                                            bottom: 25,
+                                            top: 20),
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Text(
+                                                  "Best Time to Visit",
+                                                  style: TextStyle(
                                                       fontSize: 12,
                                                       fontFamily: "SegoeUI",
                                                       fontWeight:
                                                           FontWeight.bold,
-                                                      color: Colors.black,
-                                                    ),
-                                                  )
-                                                ],
-                                              )
-                                            ],
-                                          ),
-                                        ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Container(
-                                              margin:
-                                                  EdgeInsets.only(left: 2.w),
-                                              child: Text(
-                                                "Top Trending Packages",
-                                                style: TextStyle(
-                                                    fontSize: 14,
-                                                    fontFamily: "SegoeUI",
-                                                    fontWeight: FontWeight.bold,
-                                                    color: Colors.black),
-                                              ),
+                                                      color: Colors.black),
+                                                ),
+                                                Text(
+                                                  "Starting From",
+                                                  style: TextStyle(
+                                                      fontSize: 12,
+                                                      fontFamily: "SegoeUI",
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      color: Colors.black),
+                                                ),
+                                              ],
                                             ),
-                                            TextButton(
-                                              onPressed: () {
-                                                Navigator.of(context).push(
-                                                    MaterialPageRoute(
-                                                        builder: (context) =>
-                                                            top_trading_packages_viewall()));
-                                              },
-                                              child: Text(
-                                                "View All",
-                                                style: TextStyle(
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Text(
+                                                  //"Oct - Fab (550 Bookings)",
+                                                  server?.destination!
+                                                          .bestTimeForVisit
+                                                          .toString() ??
+                                                      '',
+                                                  style: TextStyle(
+                                                      fontSize: 12,
+                                                      fontFamily: "SegoeUI",
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      color: Colors.grey),
+                                                ),
+                                                Text(
+                                                  // "₹ 1070/ Month",
+                                                  "₹ " +
+                                                      "${server?.packages?[index].pricePerPerson ?? "0"}" +
+                                                      "/Person",
+                                                  style: TextStyle(
                                                     fontSize: 12,
                                                     fontFamily: "SegoeUI",
                                                     fontWeight: FontWeight.bold,
-                                                    color: Color(0xffBE1C1C)),
-                                              ),
-                                            ),
+                                                    color: Colors.black,
+                                                  ),
+                                                )
+                                              ],
+                                            )
                                           ],
                                         ),
-                                        SizedBox(
-                                          height: 1.h,
-                                        ),
-                                        FutureBuilder<
-                                                get_destinationdata_model>(
-                                            future: GetDestinationData()
-                                                .destinationdatalist(
-                                                    destination_id),
-                                            builder: (context, snapshot) {
-                                              int? count  = snapshots.data?.data?[index].packages?.length;
-                                              return (snapshots.hasData)
-                                                  ? Container(
-                                                      height: 45.h,
-                                                      // width: 380.w,
-                                                      child: ListView.builder(
-                                                          scrollDirection:
-                                                              Axis.horizontal,
-                                                          itemCount:  count,
-                                                          // snapshots
-                                                          //     .data!
-                                                          //     .data![index]
-                                                          //     .packages!
-                                                          //     .length,
-                                                          itemBuilder:
-                                                              (context, index) {
-                                                            var _travelby =
-                                                                server
-                                                                    ?.packages?[
-                                                                        index]
-                                                                    .travelBy
-                                                                    .toString();
-                                                            var _mealrequired =
-                                                                server
-                                                                    ?.packages?[
-                                                                        index]
-                                                                    .travelBy
-                                                                    .toString();
-                                                            var _sightseening =
-                                                                server
-                                                                    ?.packages?[
-                                                                        index]
-                                                                    .sightseeing
-                                                                    .toString();
-                                                            return Padding(
-                                                              padding:
-                                                                  EdgeInsets
-                                                                      .fromLTRB(
-                                                                          10,
-                                                                          5,
-                                                                          0,
-                                                                          0),
-                                                              child: InkWell(
-                                                                onTap:
-                                                                    () async {
-                                                                  var Packages_id = server
-                                                                      ?.packages?[
-                                                                          index]
-                                                                      .sId
-                                                                      .toString() ?? '';
-                                                                  final SharedPreferences
-                                                                      prefs =
-                                                                      await _prefs;
-                                                                  prefs.setString(
-                                                                      "Packages_id",
-                                                                      Packages_id);
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Container(
+                                            margin: EdgeInsets.only(left: 2.w),
+                                            child: Text(
+                                              "Top Trending Packages",
+                                              style: TextStyle(
+                                                  fontSize: 14,
+                                                  fontFamily: "SegoeUI",
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.black),
+                                            ),
+                                          ),
+                                          TextButton(
+                                            onPressed: () {
+                                              Navigator.of(context).push(
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          top_trading_packages_viewall()));
+                                            },
+                                            child: Text(
+                                              "View All",
+                                              style: TextStyle(
+                                                  fontSize: 12,
+                                                  fontFamily: "SegoeUI",
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Color(0xffBE1C1C)),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        height: 1.h,
+                                      ),
+                                      FutureBuilder<get_destinationdata_model>(
+                                          future: GetDestinationData()
+                                              .destinationdatalist(
+                                                  destination_id),
+                                          builder: (context, snapshot) {
+                                            int? count = snapshots.data
+                                                ?.data?[index].packages?.length;
+                                            return (snapshots.hasData)
+                                                ? Container(
+                                                    height: 45.h,
+                                                    // width: 380.w,
+                                                    child: ListView.builder(
+                                                        scrollDirection:
+                                                            Axis.horizontal,
+                                                        itemCount: count,
+                                                        // snapshots
+                                                        //     .data!
+                                                        //     .data![index]
+                                                        //     .packages!
+                                                        //     .length,
+                                                        itemBuilder:
+                                                            (context, index) {
+                                                          var _travelby = server
+                                                              ?.packages?[index]
+                                                              .travelBy
+                                                              .toString();
+                                                          var _mealrequired =
+                                                              server
+                                                                  ?.packages?[
+                                                                      index]
+                                                                  .travelBy
+                                                                  .toString();
+                                                          var _sightseening =
+                                                              server
+                                                                  ?.packages?[
+                                                                      index]
+                                                                  .sightseeing
+                                                                  .toString();
+                                                          return Padding(
+                                                            padding: EdgeInsets
+                                                                .fromLTRB(10, 5,
+                                                                    0, 0),
+                                                            child: InkWell(
+                                                              onTap: () async {
+                                                                var Packages_id = server
+                                                                        ?.packages?[
+                                                                            index]
+                                                                        .sId
+                                                                        .toString() ??
+                                                                    '';
+                                                                final SharedPreferences
+                                                                    prefs =
+                                                                    await _prefs;
+                                                                prefs.setString(
+                                                                    "Packages_id",
+                                                                    Packages_id);
 
-                                                                  if(server!.packages![0].sId != null){
-                                                                    Navigator.of(
-                                                                        context)
-                                                                        .push(MaterialPageRoute(
-                                                                        builder: (context) =>
-                                                                            PackageDetails(packageId: server.packages![0].sId.toString(),)));
-                                                                  }else{
-                                                                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text ("Data not Valid")));
-
-                                                                  }
-
-                                                                },
-                                                                child:
+                                                                if (server!
+                                                                        .packages![
+                                                                            0]
+                                                                        .sId !=
+                                                                    null) {
+                                                                  Navigator.of(
+                                                                          context)
+                                                                      .push(MaterialPageRoute(
+                                                                          builder: (context) => PackageDetails(
+                                                                                packageId: server.packages![0].sId.toString(),
+                                                                              )));
+                                                                } else {
+                                                                  ScaffoldMessenger.of(
+                                                                          context)
+                                                                      .showSnackBar(SnackBar(
+                                                                          content:
+                                                                              Text("Data not Valid")));
+                                                                }
+                                                              },
+                                                              child: Container(
+                                                                margin: EdgeInsets
+                                                                    .only(
+                                                                        right:
+                                                                            10,
+                                                                        bottom:
+                                                                            7,
+                                                                        top: 5),
+                                                                height: 13.h,
+                                                                width: 95.w,
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                        color: Colors
+                                                                            .white,
+                                                                        borderRadius: BorderRadius.circular(10),
+                                                                        // border: Border.all(color: Color(0xff707070)),
+                                                                        boxShadow: [
+                                                                      BoxShadow(
+                                                                          color: Colors
+                                                                              .grey,
+                                                                          blurRadius:
+                                                                              3,
+                                                                          offset: Offset(
+                                                                              0,
+                                                                              2))
+                                                                    ]),
+                                                                child: Column(
+                                                                  children: [
                                                                     Container(
-                                                                  margin: EdgeInsets.only(
-                                                                      right:
-                                                                          10,
-                                                                      bottom:
-                                                                          7,
-                                                                      top: 5),
-                                                                  height: 13.h,
-                                                                  width: 95.w,
-                                                                  decoration: BoxDecoration(
-                                                                      color: Colors
-                                                                          .white,
-                                                                      borderRadius: BorderRadius.circular(10),
-                                                                      // border: Border.all(color: Color(0xff707070)),
-                                                                      boxShadow: [
-                                                                        BoxShadow(
+                                                                      margin: EdgeInsets.only(
+                                                                          top:
+                                                                              15,
+                                                                          right:
+                                                                              5,
+                                                                          left:
+                                                                              5),
+                                                                      height:
+                                                                          14.h,
+                                                                      width:
+                                                                          95.w,
+                                                                      decoration:
+                                                                          BoxDecoration(
+                                                                        border: Border.all(
                                                                             color:
-                                                                                Colors.grey,
-                                                                            blurRadius: 3,
-                                                                            offset: Offset(0, 2))
-                                                                      ]),
-                                                                  child: Column(
-                                                                    children: [
-                                                                      Container(
-                                                                        margin: EdgeInsets.only(
-                                                                            top:
-                                                                                15,
-                                                                            right: 5,
-                                                                            left: 5),
-                                                                        height:
-                                                                            14.h,
-                                                                        width:
-                                                                            95.w,
-                                                                        decoration: BoxDecoration(
-                                                                            border: Border.all(color: Color(0xff707070)),
-                                                                            borderRadius: BorderRadius.circular(5),
-                                                                            // image: DecorationImage(
-                                                                            //   fit: BoxFit.fill,
-                                                                            //   //image: AssetImage("assets/Baga Beach.jpg")
-                                                                            //   image: NetworkImage(server.packages![index].place.toString()),
-                                                                            // )
-                                                                        ),
-                                                                        child: CachedNetworkImage(
-                                                                          errorWidget: (context, url, error) => Text(""),
-                                                                          imageUrl:"${server?.packages?[index].place}" ,
-                                                                          fit: BoxFit.cover,
-                                                                        ),
+                                                                                Color(0xff707070)),
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(5),
+                                                                        // image: DecorationImage(
+                                                                        //   fit: BoxFit.fill,
+                                                                        //   //image: AssetImage("assets/Baga Beach.jpg")
+                                                                        //   image: NetworkImage(server.packages![index].place.toString()),
+                                                                        // )
                                                                       ),
-                                                                      Padding(
-                                                                        padding: EdgeInsets.only(
-                                                                            right:
-                                                                                5,
-                                                                            left: 15,
-                                                                            top: 15),
-                                                                        child:
-                                                                            Row(
-                                                                          children: [
-                                                                            Text(
-                                                                              "Starting From",
-                                                                              style: TextStyle(fontSize: 16, fontFamily: "SegoeUI", fontWeight: FontWeight.bold, color: Colors.black),
-                                                                            ),
-                                                                          ],
-                                                                        ),
+                                                                      child:
+                                                                          CachedNetworkImage(
+                                                                        errorWidget: (context,
+                                                                                url,
+                                                                                error) =>
+                                                                            Text(""),
+                                                                        imageUrl:
+                                                                            "${server?.packages?[index].place}",
+                                                                        fit: BoxFit
+                                                                            .cover,
                                                                       ),
-                                                                      Padding(
-                                                                        padding: EdgeInsets.fromLTRB(
-                                                                            15,
-                                                                            5,
-                                                                            5,
-                                                                            0),
-                                                                        child:
-                                                                            Row(
-                                                                          mainAxisAlignment:
-                                                                              MainAxisAlignment.spaceBetween,
-                                                                          children: [
-                                                                            Text(
-                                                                              //"₹ 2,50,000/ Per Person",
-                                                                              "₹ " + "${server?.packages?[index].pricePerPerson ?? '0'}" + "/Person",
-                                                                              style: TextStyle(fontSize: 12, fontFamily: "SegoeUI", fontWeight: FontWeight.bold, color: Colors.black),
+                                                                    ),
+                                                                    Padding(
+                                                                      padding: EdgeInsets.only(
+                                                                          right:
+                                                                              5,
+                                                                          left:
+                                                                              15,
+                                                                          top:
+                                                                              15),
+                                                                      child:
+                                                                          Row(
+                                                                        children: [
+                                                                          Text(
+                                                                            "Starting From",
+                                                                            style: TextStyle(
+                                                                                fontSize: 16,
+                                                                                fontFamily: "SegoeUI",
+                                                                                fontWeight: FontWeight.bold,
+                                                                                color: Colors.black),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    ),
+                                                                    Padding(
+                                                                      padding: EdgeInsets
+                                                                          .fromLTRB(
+                                                                              15,
+                                                                              5,
+                                                                              5,
+                                                                              0),
+                                                                      child:
+                                                                          Row(
+                                                                        mainAxisAlignment:
+                                                                            MainAxisAlignment.spaceBetween,
+                                                                        children: [
+                                                                          Text(
+                                                                            //"₹ 2,50,000/ Per Person",
+                                                                            "₹ " +
+                                                                                "${server?.packages?[index].pricePerPerson ?? '0'}" +
+                                                                                "/Person",
+                                                                            style: TextStyle(
+                                                                                fontSize: 12,
+                                                                                fontFamily: "SegoeUI",
+                                                                                fontWeight: FontWeight.bold,
+                                                                                color: Colors.black),
+                                                                          ),
+                                                                          Padding(
+                                                                            padding:
+                                                                                EdgeInsets.only(right: 15),
+                                                                            child:
+                                                                                Text(
+                                                                              //"7 D-6 N",
+                                                                              "${server?.packages?[index].days ?? ''}",
+                                                                              style: TextStyle(fontSize: 12, fontFamily: "SegoeUI", fontWeight: FontWeight.bold, color: Colors.grey),
                                                                             ),
-                                                                            Padding(
-                                                                              padding: EdgeInsets.only(right: 15),
-                                                                              child: Text(
-                                                                                //"7 D-6 N",
-                                                                                "${server?.packages?[index].days ?? ''}",
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    ),
+                                                                    Padding(
+                                                                      padding: EdgeInsets
+                                                                          .only(
+                                                                              top: 30),
+                                                                      child:
+                                                                          Row(
+                                                                        mainAxisAlignment:
+                                                                            MainAxisAlignment.spaceEvenly,
+                                                                        children: [
+                                                                          Column(
+                                                                            children: [
+                                                                              Icon(
+                                                                                Icons.home_filled,
+                                                                                color: Color(0xff09646D),
+                                                                                size: 24,
+                                                                              ),
+                                                                              Text(
+                                                                                //"Upto 3 Stars",
+                                                                                "Upto " + "${server?.packages?[index].hotelType ?? ''}",
                                                                                 style: TextStyle(fontSize: 12, fontFamily: "SegoeUI", fontWeight: FontWeight.bold, color: Colors.grey),
                                                                               ),
-                                                                            ),
-                                                                          ],
-                                                                        ),
-                                                                      ),
-                                                                      Padding(
-                                                                        padding:
-                                                                            EdgeInsets.only(top: 30),
-                                                                        child:
-                                                                            Row(
-                                                                          mainAxisAlignment:
-                                                                              MainAxisAlignment.spaceEvenly,
-                                                                          children: [
-                                                                            Column(
-                                                                              children: [
+                                                                            ],
+                                                                          ),
+                                                                          Column(
+                                                                            children: [
+                                                                              if (_travelby == "Car") ...[
                                                                                 Icon(
-                                                                                  Icons.home_filled,
+                                                                                  CupertinoIcons.car,
+                                                                                  color: Color(0xff09646D),
+                                                                                  size: 24,
+                                                                                ),
+                                                                              ] else if (_travelby == "Flight") ...[
+                                                                                Icon(
+                                                                                  CupertinoIcons.airplane,
+                                                                                  color: Color(0xff09646D),
+                                                                                  size: 24,
+                                                                                ),
+                                                                              ] else if (_travelby == "Train") ...[
+                                                                                Icon(
+                                                                                  CupertinoIcons.tram_fill,
+                                                                                  color: Color(0xff09646D),
+                                                                                  size: 24,
+                                                                                ),
+                                                                              ] else if (_travelby == "train") ...[
+                                                                                Icon(
+                                                                                  CupertinoIcons.tram_fill,
+                                                                                  color: Color(0xff09646D),
+                                                                                  size: 24,
+                                                                                ),
+                                                                              ] else if (_travelby == "Bus") ...[
+                                                                                Icon(
+                                                                                  CupertinoIcons.bus,
+                                                                                  color: Color(0xff09646D),
+                                                                                  size: 24,
+                                                                                ),
+                                                                              ],
+                                                                              Text(
+                                                                                // "Flights",
+                                                                                "By " + "${server?.packages?[index].travelBy ?? ''}",
+                                                                                style: TextStyle(fontSize: 12, fontFamily: "SegoeUI", fontWeight: FontWeight.bold, color: Colors.grey),
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                          Column(
+                                                                            children: [
+                                                                              if (_mealrequired != "") ...[
+                                                                                Icon(
+                                                                                  Icons.restaurant,
                                                                                   color: Color(0xff09646D),
                                                                                   size: 24,
                                                                                 ),
                                                                                 Text(
-                                                                                  //"Upto 3 Stars",
-                                                                                  "Upto " + "${server?.packages?[index].hotelType ?? ''}",
+                                                                                  "Meals",
+                                                                                  //server.packages![index].mealRequired.toString(),
                                                                                   style: TextStyle(fontSize: 12, fontFamily: "SegoeUI", fontWeight: FontWeight.bold, color: Colors.grey),
                                                                                 ),
-                                                                              ],
-                                                                            ),
-                                                                            Column(
-                                                                              children: [
-                                                                                if (_travelby == "Car") ...[
-                                                                                  Icon(
-                                                                                    CupertinoIcons.car,
-                                                                                    color: Color(0xff09646D),
-                                                                                    size: 24,
-                                                                                  ),
-                                                                                ] else if (_travelby == "Flight") ...[
-                                                                                  Icon(
-                                                                                    CupertinoIcons.airplane,
-                                                                                    color: Color(0xff09646D),
-                                                                                    size: 24,
-                                                                                  ),
-                                                                                ] else if (_travelby == "Train") ...[
-                                                                                  Icon(
-                                                                                    CupertinoIcons.tram_fill,
-                                                                                    color: Color(0xff09646D),
-                                                                                    size: 24,
-                                                                                  ),
-                                                                                ] else if (_travelby == "train") ...[
-                                                                                  Icon(
-                                                                                    CupertinoIcons.tram_fill,
-                                                                                    color: Color(0xff09646D),
-                                                                                    size: 24,
-                                                                                  ),
-                                                                                ] else if (_travelby == "Bus") ...[
-                                                                                  Icon(
-                                                                                    CupertinoIcons.bus,
-                                                                                    color: Color(0xff09646D),
-                                                                                    size: 24,
-                                                                                  ),
-                                                                                ],
-                                                                                Text(
-                                                                                  // "Flights",
-                                                                                  "By " + "${server?.packages?[index].travelBy ?? ''}",
-                                                                                  style: TextStyle(fontSize: 12, fontFamily: "SegoeUI", fontWeight: FontWeight.bold, color: Colors.grey),
-                                                                                ),
-                                                                              ],
-                                                                            ),
-                                                                            Column(
-                                                                              children: [
-                                                                                if (_mealrequired != "") ...[
-                                                                                  Icon(
-                                                                                    Icons.restaurant,
-                                                                                    color: Color(0xff09646D),
-                                                                                    size: 24,
-                                                                                  ),
-                                                                                  Text(
-                                                                                    "Meals",
-                                                                                    //server.packages![index].mealRequired.toString(),
-                                                                                    style: TextStyle(fontSize: 12, fontFamily: "SegoeUI", fontWeight: FontWeight.bold, color: Colors.grey),
-                                                                                  ),
-                                                                                ] else
-                                                                                  ...[],
-                                                                              ],
-                                                                            ),
-                                                                            Column(
-                                                                              children: [
-                                                                                if (_sightseening != "") ...[
-                                                                                  Icon(
-                                                                                    Icons.map,
-                                                                                    color: Color(0xff09646D),
-                                                                                    size: 24,
-                                                                                  ),
-                                                                                  Text(
-                                                                                    "Sightseeing",
-                                                                                    //server.packages![index].sightseeing.toString(),
-                                                                                    style: TextStyle(fontSize: 12, fontFamily: "SegoeUI", fontWeight: FontWeight.bold, color: Colors.grey),
-                                                                                  ),
-                                                                                ] else
-                                                                                  ...[],
-                                                                              ],
-                                                                            ),
-                                                                          ],
-                                                                        ),
-                                                                      ),
-                                                                      InkWell(
-                                                                        onTap:
-                                                                            () {
-                                                                          Navigator.push(context, MaterialPageRoute(builder: (context)=>MyPlaniing()));
-                                                                        },
-                                                                        child:
-                                                                            Container(
-                                                                          margin:
-                                                                              EdgeInsets.only(top: 2.h),
-                                                                          height:
-                                                                              4.h,
-                                                                          width:
-                                                                              55.w,
-                                                                          decoration:
-                                                                              BoxDecoration(
-                                                                            color:
-                                                                                Color(0xff09646D),
-                                                                            borderRadius:
-                                                                                BorderRadius.circular(10),
-                                                                            boxShadow: [
-                                                                              BoxShadow(color: Colors.grey, blurRadius: 3, offset: Offset(1, 2))
+                                                                              ] else
+                                                                                ...[],
                                                                             ],
                                                                           ),
+                                                                          Column(
+                                                                            children: [
+                                                                              if (_sightseening != "") ...[
+                                                                                Icon(
+                                                                                  Icons.map,
+                                                                                  color: Color(0xff09646D),
+                                                                                  size: 24,
+                                                                                ),
+                                                                                Text(
+                                                                                  "Sightseeing",
+                                                                                  //server.packages![index].sightseeing.toString(),
+                                                                                  style: TextStyle(fontSize: 12, fontFamily: "SegoeUI", fontWeight: FontWeight.bold, color: Colors.grey),
+                                                                                ),
+                                                                              ] else
+                                                                                ...[],
+                                                                            ],
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    ),
+                                                                    InkWell(
+                                                                      onTap:
+                                                                          () {
+                                                                        Navigator.push(
+                                                                            context,
+                                                                            MaterialPageRoute(builder: (context) => MyPlaniing()));
+                                                                      },
+                                                                      child:
+                                                                          Container(
+                                                                        margin: EdgeInsets.only(
+                                                                            top:
+                                                                                2.h),
+                                                                        height:
+                                                                            4.h,
+                                                                        width:
+                                                                            55.w,
+                                                                        decoration:
+                                                                            BoxDecoration(
+                                                                          color:
+                                                                              Color(0xff09646D),
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(10),
+                                                                          boxShadow: [
+                                                                            BoxShadow(
+                                                                                color: Colors.grey,
+                                                                                blurRadius: 3,
+                                                                                offset: Offset(1, 2))
+                                                                          ],
+                                                                        ),
+                                                                        child:
+                                                                            Center(
                                                                           child:
-                                                                              Center(
+                                                                              Padding(
+                                                                            padding:
+                                                                                EdgeInsets.only(bottom: 2),
                                                                             child:
-                                                                                Padding(
-                                                                              padding: EdgeInsets.only(bottom: 2),
-                                                                              child: Text(
-                                                                                "Customize & Get Quote",
-                                                                                style: TextStyle(fontSize: 12, fontFamily: "SegoeUI", fontWeight: FontWeight.bold, color: Colors.white),
-                                                                              ),
+                                                                                Text(
+                                                                              "Customize & Get Quote",
+                                                                              style: TextStyle(fontSize: 12, fontFamily: "SegoeUI", fontWeight: FontWeight.bold, color: Colors.white),
                                                                             ),
                                                                           ),
                                                                         ),
                                                                       ),
-                                                                    ],
-                                                                  ),
+                                                                    ),
+                                                                  ],
                                                                 ),
                                                               ),
-                                                            );
-                                                          }),
-                                                    )
-                                                  : CircularProgressIndicator();
-                                            })
-                                      ],
-                                    ),
-                                    SizedBox(
-                                      height: 4.h,
-                                    ),
-                                    FutureBuilder<get_destinationdata_model>(
-                                        future: GetDestinationData()
-                                            .destinationdatalist(
-                                                destination_placeToVisit),
-                                        builder: (context, snapshot) {
-                                          int? count = snapshots.data?.data?[index].placeToVisit?.length;
-                                          return (snapshots.hasData)
-                                              ? Container(
-                                                  height: 15.h,
-                                                  // color: Colors.green,
-                                                  child: ListView.builder(
-                                                      scrollDirection:
-                                                          Axis.horizontal,
-                                                      itemCount: count,
-                                                      // snapshots
-                                                      //     .data!
-                                                      //     .data![index]
-                                                      //     .placeToVisit!
-                                                      //     .length,
-                                                      itemBuilder:
-                                                          (context, index) {
-                                                        _showDialog(){
+                                                            ),
+                                                          );
+                                                        }),
+                                                  )
+                                                : CircularProgressIndicator();
+                                          })
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 4.h,
+                                  ),
+                                  FutureBuilder<get_destinationdata_model>(
+                                      future: GetDestinationData()
+                                          .destinationdatalist(
+                                              destination_placeToVisit),
+                                      builder: (context, snapshot) {
+                                        int? count = snapshots.data
+                                            ?.data?[index].placeToVisit?.length;
+                                        return (snapshots.hasData)
+                                            ? Container(
+                                                height: 15.h,
+                                                // color: Colors.green,
+                                                child: ListView.builder(
+                                                    scrollDirection:
+                                                        Axis.horizontal,
+                                                    itemCount: count,
+                                                    // snapshots
+                                                    //     .data!
+                                                    //     .data![index]
+                                                    //     .placeToVisit!
+                                                    //     .length,
+                                                    itemBuilder:
+                                                        (context, index) {
+                                                      _showDialog() {
+                                                        showDialog(
+                                                            context: context,
+                                                            builder:
+                                                                (BuildContext
+                                                                    context) {
+                                                              return Dialog(
+                                                                insetPadding:
+                                                                    EdgeInsets
+                                                                        .all(0),
+                                                                backgroundColor:
+                                                                    Colors
+                                                                        .transparent,
+                                                                child:
+                                                                    Container(
+                                                                  height: 65.h,
+                                                                  width: 95.w,
+                                                                  // color: Colors.transparent,
+                                                                  child: ListView
+                                                                      .builder(
+                                                                          scrollDirection: Axis
+                                                                              .horizontal,
+                                                                          itemCount: snapshots
+                                                                              .data!
+                                                                              .data![
+                                                                                  0]
+                                                                              .placeToVisit!
+                                                                              .length,
+                                                                          itemBuilder:
+                                                                              (context, index) {
+                                                                            return Container(
+                                                                                margin: EdgeInsets.only(right: 10, left: 10),
+                                                                                height: MediaQuery.of(context).size.height / 2,
+                                                                                width: MediaQuery.of(context).size.width / 1.3,
+                                                                                decoration: BoxDecoration(
+                                                                                  color: Colors.white,
+                                                                                  borderRadius: BorderRadius.circular(10),
+                                                                                  // border: Border.all(color: Color(0xff707070)),
+                                                                                ),
+                                                                                child: Stack(
+                                                                                  alignment: Alignment.topCenter,
+                                                                                  children: [
+                                                                                    Container(
+                                                                                      margin: EdgeInsets.only(right: 10, top: 10, left: 10),
+                                                                                      height: 18.h,
+                                                                                      width: 80.w,
+                                                                                      decoration: BoxDecoration(
+                                                                                          // image: DecorationImage(
+                                                                                          //     fit: BoxFit.fill,
+                                                                                          //     //image: AssetImage("assets/Baga Beach.jpg")
+                                                                                          //     image: NetworkImage(server.placeToVisit![index].photo.toString())),
 
-                                                          showDialog(context: context, builder: (BuildContext context) {
-                                                                return Dialog(insetPadding: EdgeInsets.all(0),
-
-                                                                  backgroundColor:
-                                                                      Colors.transparent,
-                                                                  child:
-                                                                      Container(
-                                                                    height:
-                                                                        65.h,
-                                                                    width:
-                                                                        95.w,
-                                                                    // color: Colors.transparent,
-                                                                    child: ListView.builder(
-                                                                        scrollDirection: Axis.horizontal,
-                                                                        itemCount: snapshots.data!.data![0].placeToVisit!.length,
-                                                                        itemBuilder: (context, index) {
-                                                                          return Container(
-                                                                              margin: EdgeInsets.only(right: 10, left: 10),
-                                                                              height: MediaQuery.of(context).size.height / 2,
-                                                                              width: MediaQuery.of(context).size.width / 1.3,
-                                                                              decoration: BoxDecoration(
-                                                                                color: Colors.white,
-                                                                                borderRadius: BorderRadius.circular(10),
-                                                                                // border: Border.all(color: Color(0xff707070)),
-                                                                              ),
-                                                                              child: Stack(
-                                                                                alignment: Alignment.topCenter,
-                                                                                children: [
-                                                                                  Container(
-                                                                                    margin: EdgeInsets.only(right: 10, top: 10, left: 10),
-                                                                                    height: 18.h,
-                                                                                    width: 80.w,
-                                                                                    decoration: BoxDecoration(
-                                                                                        // image: DecorationImage(
-                                                                                        //     fit: BoxFit.fill,
-                                                                                        //     //image: AssetImage("assets/Baga Beach.jpg")
-                                                                                        //     image: NetworkImage(server.placeToVisit![index].photo.toString())),
-
-                                                                                        borderRadius: BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10))),
-
-                                                                                  child: ClipRRect(
-                                                                                    borderRadius: BorderRadius.circular(10),
-                                                                                    child: CachedNetworkImage(
-                                                                                      errorWidget: (context, url, error) => Text(""),
-                                                                                      imageUrl: "${server?.placeToVisit?[index].photo}",
-                                                                                      fit: BoxFit.cover,
+                                                                                          borderRadius: BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10))),
+                                                                                      child: ClipRRect(
+                                                                                        borderRadius: BorderRadius.circular(10),
+                                                                                        child: CachedNetworkImage(
+                                                                                          errorWidget: (context, url, error) => Text(""),
+                                                                                          imageUrl: "${server?.placeToVisit?[index].photo}",
+                                                                                          fit: BoxFit.cover,
+                                                                                        ),
+                                                                                      ),
                                                                                     ),
-                                                                                  ),
-                                                                                  ),
-                                                                                  Positioned(
-                                                                                    top: 200,
-                                                                                    child: Center(
-                                                                                      child: Container(
-                                                                                        width: 95.w,
-                                                                                        child: Center(
-                                                                                          child: Padding(
-                                                                                            padding:  EdgeInsets.only(left: 15),
-                                                                                            child: Text(
-                                                                                              //"Canada: Arrival and Free day",
-                                                                                              "${server?.placeToVisit?[index].name}",
-                                                                                              style: TextStyle(fontSize: 12, fontFamily: "SegoeUI", fontWeight: FontWeight.bold, color: Colors.black),
+                                                                                    Positioned(
+                                                                                      top: 200,
+                                                                                      child: Center(
+                                                                                        child: Container(
+                                                                                          width: 95.w,
+                                                                                          child: Center(
+                                                                                            child: Padding(
+                                                                                              padding: EdgeInsets.only(left: 15),
+                                                                                              child: Text(
+                                                                                                //"Canada: Arrival and Free day",
+                                                                                                "${server?.placeToVisit?[index].name}",
+                                                                                                style: TextStyle(fontSize: 12, fontFamily: "SegoeUI", fontWeight: FontWeight.bold, color: Colors.black),
+                                                                                              ),
                                                                                             ),
                                                                                           ),
                                                                                         ),
                                                                                       ),
                                                                                     ),
-                                                                                  ),
-                                                                                  SizedBox(height: 10.h,),
-                                                                                  Padding(
-                                                                                    padding: EdgeInsets.only(top: 260, right: 25, left: 25),
-                                                                                    child: Container(
-                                                                                      //margin: EdgeInsets.only(bottom: 25),
-                                                                                      width: 80.w,
-                                                                                      height: 38.h,
-                                                                                      color: Colors.transparent,
-                                                                                      child: SingleChildScrollView(
-                                                                                        scrollDirection: Axis.vertical,
-                                                                                        child: Text(
-                                                                                          //"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has beenthe industry's standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book....Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has beenthe industry's standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book......Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has beenthe industry's standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-                                                                                          "${server?.placeToVisit?[index].description}",
-                                                                                          textAlign: TextAlign.left,
-                                                                                          style: TextStyle(fontSize: 12, fontFamily: "SegoeUI", fontWeight: FontWeight.bold, color: Colors.black),
+                                                                                    SizedBox(
+                                                                                      height: 10.h,
+                                                                                    ),
+                                                                                    Padding(
+                                                                                      padding: EdgeInsets.only(top: 260, right: 25, left: 25),
+                                                                                      child: Container(
+                                                                                        //margin: EdgeInsets.only(bottom: 25),
+                                                                                        width: 80.w,
+                                                                                        height: 38.h,
+                                                                                        color: Colors.transparent,
+                                                                                        child: SingleChildScrollView(
+                                                                                          scrollDirection: Axis.vertical,
+                                                                                          child: Text(
+                                                                                            //"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has beenthe industry's standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book....Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has beenthe industry's standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book......Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has beenthe industry's standard dummy text ever since the 1500s,when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+                                                                                            "${server?.placeToVisit?[index].description}",
+                                                                                            textAlign: TextAlign.left,
+                                                                                            style: TextStyle(fontSize: 12, fontFamily: "SegoeUI", fontWeight: FontWeight.bold, color: Colors.black),
+                                                                                          ),
                                                                                         ),
                                                                                       ),
                                                                                     ),
-                                                                                  ),
-                                                                                ],
-                                                                              ));
-                                                                        }),
-                                                                  ),
-                                                                );
-                                                              });
-                                                        }
+                                                                                  ],
+                                                                                ));
+                                                                          }),
+                                                                ),
+                                                              );
+                                                            });
+                                                      }
 
-                                                        return Padding(
-                                                          padding: EdgeInsets
-                                                              .fromLTRB(
-                                                                  5,
-                                                                  0,
-                                                                  2,
-                                                                  0),
-                                                          child: Column(
-                                                            children: [
-                                                              InkWell(
-                                                                onTap: () {
-                                                                  _showDialog();
-                                                                },
+                                                      return Padding(
+                                                        padding:
+                                                            EdgeInsets.fromLTRB(
+                                                                5, 0, 2, 0),
+                                                        child: Column(
+                                                          children: [
+                                                            InkWell(
+                                                              onTap: () {
+                                                                _showDialog();
+                                                              },
+                                                              child: Container(
+                                                                height: 10.h,
+                                                                width: 55.w,
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  border: Border.all(
+                                                                      color: Color(
+                                                                          0xff707070)),
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              15),
+                                                                  // image: DecorationImage(
+                                                                  //     fit: BoxFit.fill,
+                                                                  //     // image: AssetImage("assets/Baga Beach.jpg",)
+                                                                  //     image: NetworkImage(server.placeToVisit![index].photo.toString()))
+                                                                ),
                                                                 child:
-                                                                    Container(
-                                                                  height: 10.h,
-                                                                  width: 55.w,
-                                                                  decoration: BoxDecoration(
-                                                                      border: Border.all(color: Color(0xff707070)),
-                                                                      borderRadius: BorderRadius.circular(15),
-                                                                      // image: DecorationImage(
-                                                                      //     fit: BoxFit.fill,
-                                                                      //     // image: AssetImage("assets/Baga Beach.jpg",)
-                                                                      //     image: NetworkImage(server.placeToVisit![index].photo.toString()))
+                                                                    ClipRRect(
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              14),
+                                                                  child:
+                                                                      CachedNetworkImage(
+                                                                    errorWidget: (context,
+                                                                            url,
+                                                                            error) =>
+                                                                        Text(
+                                                                            ""),
+                                                                    imageUrl:
+                                                                        "${server?.placeToVisit?[index].photo}",
+                                                                    fit: BoxFit
+                                                                        .fill,
                                                                   ),
-                                                                      child: ClipRRect(
-                                                                        borderRadius: BorderRadius.circular(14),
-                                                                        child: CachedNetworkImage(
-                                                                          errorWidget: (context, url, error) => Text(""),
-                                                                          imageUrl: "${server?.placeToVisit?[index].photo}",
-                                                                          fit: BoxFit.fill,
-                                                                        ),
-                                                                      ),
                                                                 ),
                                                               ),
-                                                              SizedBox(
-                                                                height: 1.h,
-                                                              ),
-                                                              Text(
-                                                                  //"CN Tower (Canada)",
-                                                                int.parse("${server?.placeToVisit?[index].name?.length ?? "0"}")
-                                                                       >
-                                                                        20
-                                                                    ? "${server?.placeToVisit?[index].name.toString().substring(0, 20)}"
-                                                                    : "${server?.placeToVisit?[index].name ?? ''}" +
-                                                                        "...",
-                                                                style: TextStyle(
-                                                                    fontSize:
-                                                                        12,
-                                                                    fontFamily:
-                                                                        "SegoeUI",
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .bold,
-                                                                    color: Colors
-                                                                        .grey),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        );
-                                                      }),
-                                                )
-                                              : CircularProgressIndicator();
-                                        }),
-                                    SizedBox(
-                                      height: 3.h,
-                                    ),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          "How To Reach " +
-                                              "${server?.destination?.destinationName}"
-                                                  ,
-                                          style: TextStyle(
-                                              fontSize: 14,
-                                              fontFamily: "SegoeUI",
-                                              fontWeight: FontWeight.bold,
-                                              color: Colors.black),
-                                        ),
-                                      ],
-                                    ),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        if (_travel1 == "Car") ...[
-                                          Icon(
-                                            CupertinoIcons.car,
-                                            color: Color(0xff09646D),
-                                            size: 21,
-                                          ),
-                                        ] else if (_travel1 == "Flight") ...[
-                                          Icon(
-                                            CupertinoIcons.airplane,
-                                            color: Color(0xff09646D),
-                                            size: 21,
-                                          ),
-                                        ] else if (_travel1 == "Train") ...[
-                                          Icon(
-                                            CupertinoIcons.tram_fill,
-                                            color: Color(0xff09646D),
-                                            size: 21,
-                                          ),
-                                        ] else if (_travel1 == "Bus") ...[
-                                          Icon(
-                                            CupertinoIcons.bus,
-                                            color: Color(0xff09646D),
-                                            size: 21,
-                                          ),
-                                        ],
-                                        SizedBox(
-                                          width: 1.w,
-                                        ),
-                                        Text(
-                                          //"By Air",
-                                          "By " +
-                                              "${server?.destination?.howToReach ?? ''}"
-                                                  ,
-                                          //server.placeToVisit![index].name.toString(),
-                                          style: TextStyle(
-                                              fontSize: 14,
-                                              fontFamily: "SegoeUI",
-                                              fontWeight: FontWeight.bold,
-                                              color: Colors.black),
-                                        ),
-                                      ],
-                                    ),
-                                    SizedBox(
-                                      height: 2.h,
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsets.only(
-                                          right: 18, left: 18),
-                                      child: Text(
-                                        // "Lprem is very wonderful experience.ipsum I sdn jaskk euifn hbe chek is very good I recommend to all lorem to visit. Lprem is very wonderful ex perience.ipsum I sdn jaskk euifn hbe chek is very good I recommend to all lorem to visit. Lprem is very wonderful experience.ipsum I sdn jaskk euifn hbe chek is very good I recommend to all lorem to visit.",
-                                        "       " +
-                                            "${server?.destination?.aboutDestination}"
-                                                ,
-                                        textAlign: TextAlign.left,
+                                                            ),
+                                                            SizedBox(
+                                                              height: 1.h,
+                                                            ),
+                                                            Text(
+                                                              //"CN Tower (Canada)",
+                                                              int.parse("${server?.placeToVisit?[index].name?.length ?? "0"}") >
+                                                                      20
+                                                                  ? "${server?.placeToVisit?[index].name.toString().substring(0, 20)}"
+                                                                  : "${server?.placeToVisit?[index].name ?? ''}" +
+                                                                      "...",
+                                                              style: TextStyle(
+                                                                  fontSize: 12,
+                                                                  fontFamily:
+                                                                      "SegoeUI",
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold,
+                                                                  color: Colors
+                                                                      .grey),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    }),
+                                              )
+                                            : CircularProgressIndicator();
+                                      }),
+                                  SizedBox(
+                                    height: 3.h,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        "How To Reach " +
+                                            "${server?.destination?.destinationName}",
                                         style: TextStyle(
-                                            fontSize: 12,
+                                            fontSize: 14,
                                             fontFamily: "SegoeUI",
                                             fontWeight: FontWeight.bold,
-                                            color: Colors.grey),
+                                            color: Colors.black),
                                       ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      if (_travel1 == "Car") ...[
+                                        Icon(
+                                          CupertinoIcons.car,
+                                          color: Color(0xff09646D),
+                                          size: 21,
+                                        ),
+                                      ] else if (_travel1 == "Flight") ...[
+                                        Icon(
+                                          CupertinoIcons.airplane,
+                                          color: Color(0xff09646D),
+                                          size: 21,
+                                        ),
+                                      ] else if (_travel1 == "Train") ...[
+                                        Icon(
+                                          CupertinoIcons.tram_fill,
+                                          color: Color(0xff09646D),
+                                          size: 21,
+                                        ),
+                                      ] else if (_travel1 == "Bus") ...[
+                                        Icon(
+                                          CupertinoIcons.bus,
+                                          color: Color(0xff09646D),
+                                          size: 21,
+                                        ),
+                                      ],
+                                      SizedBox(
+                                        width: 1.w,
+                                      ),
+                                      Text(
+                                        //"By Air",
+                                        "By " +
+                                            "${server?.destination?.howToReach ?? ''}",
+                                        //server.placeToVisit![index].name.toString(),
+                                        style: TextStyle(
+                                            fontSize: 14,
+                                            fontFamily: "SegoeUI",
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.black),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 2.h,
+                                  ),
+                                  Padding(
+                                    padding:
+                                        EdgeInsets.only(right: 18, left: 18),
+                                    child: Text(
+                                      // "Lprem is very wonderful experience.ipsum I sdn jaskk euifn hbe chek is very good I recommend to all lorem to visit. Lprem is very wonderful ex perience.ipsum I sdn jaskk euifn hbe chek is very good I recommend to all lorem to visit. Lprem is very wonderful experience.ipsum I sdn jaskk euifn hbe chek is very good I recommend to all lorem to visit.",
+                                      "       " +
+                                          "${server?.destination?.aboutDestination}",
+                                      textAlign: TextAlign.left,
+                                      style: TextStyle(
+                                          fontSize: 12,
+                                          fontFamily: "SegoeUI",
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.grey),
                                     ),
-                                    SizedBox(
-                                      height: 3.h,
-                                    ),
-                                  ],
-                                ),
+                                  ),
+                                  SizedBox(
+                                    height: 3.h,
+                                  ),
+                                ],
                               ),
+                            ),
                           ),
                         );
                       })
