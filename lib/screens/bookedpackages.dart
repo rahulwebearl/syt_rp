@@ -297,7 +297,7 @@ class _BookedPackagesState extends State<BookedPackages> {
           title: Text(
             "My Booking",
             style: TextStyle(
-                fontSize: 18,
+                fontSize: 16,
                 fontFamily: "SegoeUI",
                 fontWeight: FontWeight.bold,
                 color: Color(0xff004351)),

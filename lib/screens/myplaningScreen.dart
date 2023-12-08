@@ -259,7 +259,7 @@ class _MyPlaniingState extends State<MyPlaniing> {
                                           height: 2.h,
                                         ),
                                         Container(
-                                          height: 18.h,
+                                          height: 21.h,
                                           width: 80.w,
                                           // color: Colors.red,
                                           child: GridView.builder(

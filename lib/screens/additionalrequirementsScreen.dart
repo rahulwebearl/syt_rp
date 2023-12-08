@@ -207,7 +207,7 @@ class _AdditionalRequirementsState extends State<AdditionalRequirements> {
                           Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: TextField(
-                              maxLines: 5,
+                              maxLines: 19,
                               decoration: InputDecoration(
                                 helperText: "Write your requirement here",
                                 enabledBorder: OutlineInputBorder(
@@ -242,41 +242,41 @@ class _AdditionalRequirementsState extends State<AdditionalRequirements> {
                           SizedBox(
                             height: 10,
                           ),
-                          Expanded(
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: TextField(
-                                maxLines: 5,
-                                decoration: InputDecoration(
-                                  helperText: "Write your requirement here",
-                                  enabledBorder: OutlineInputBorder(
-                                      borderSide:
-                                          BorderSide(color: Color(0xff0A6A73)),
-                                      borderRadius: BorderRadius.circular(15)),
-                                  border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(15)),
-                                  disabledBorder: OutlineInputBorder(
-                                    borderSide:
-                                        BorderSide(color: Color(0xff0A6A73)),
-                                  ),
-                                ),
-                                controller: _addrequirement2,
-                                style: TextStyle(
-                                  color: Colors.black,
-                                ),
-                              ),
-                              // child: QuillEditor(
-                              //      placeholder: "Type Your Requirement",
-                              //      controller: _addrequirement,
-                              //      focusNode: _focusNode,
-                              //      scrollController: _scrollController,
-                              //      scrollable: true,
-                              //      padding: EdgeInsets.zero,
-                              //      autoFocus: false,
-                              //      readOnly: false,
-                              //      expands: false),
-                            ),
-                          ),
+                          // Expanded(
+                          //   child: Padding(
+                          //     padding: const EdgeInsets.all(8.0),
+                          //     child: TextField(
+                          //       maxLines: 5,
+                          //       decoration: InputDecoration(
+                          //         helperText: "Write your requirement here",
+                          //         enabledBorder: OutlineInputBorder(
+                          //             borderSide:
+                          //                 BorderSide(color: Color(0xff0A6A73)),
+                          //             borderRadius: BorderRadius.circular(15)),
+                          //         border: OutlineInputBorder(
+                          //             borderRadius: BorderRadius.circular(15)),
+                          //         disabledBorder: OutlineInputBorder(
+                          //           borderSide:
+                          //               BorderSide(color: Color(0xff0A6A73)),
+                          //         ),
+                          //       ),
+                          //       controller: _addrequirement2,
+                          //       style: TextStyle(
+                          //         color: Colors.black,
+                          //       ),
+                          //     ),
+                          //     // child: QuillEditor(
+                          //     //      placeholder: "Type Your Requirement",
+                          //     //      controller: _addrequirement,
+                          //     //      focusNode: _focusNode,
+                          //     //      scrollController: _scrollController,
+                          //     //      scrollable: true,
+                          //     //      padding: EdgeInsets.zero,
+                          //     //      autoFocus: false,
+                          //     //      readOnly: false,
+                          //     //      expands: false),
+                          //   ),
+                          // ),
                           // MarkdownBody(data: quillToMarkdown(json),shrinkWrap: true,)
                         ],
                       ),

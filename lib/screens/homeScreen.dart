@@ -215,6 +215,7 @@ class _HomeScreenState extends State<HomeScreen> {
           body: FutureBuilder<Get_HomePage_Data_Model>(
               future: HomePage_Data().HomePage_DataList(),
               builder: (context, snapshots) {
+                print("homepage ${snapshots}");
                 return (snapshots.hasData)
                     ? ListView.builder(
                         shrinkWrap: true,
@@ -805,11 +806,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ),
                                     TextButton(
                                       onPressed: () {
-                                        print("Forward to HotelScreen");
-                                        Navigator.of(context).push(
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    HotelScreen()));
+                                        // print("Forward to HotelScreen");
+                                        // Navigator.of(context).push(
+                                        //     MaterialPageRoute(
+                                        //         builder: (context) =>
+                                        //             HotelScreen()));
                                       },
                                       child: Container(
                                         child: Text(

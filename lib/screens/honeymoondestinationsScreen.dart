@@ -230,7 +230,9 @@ class _HoneymoonDestinationsState extends State<HoneymoonDestinations> {
   var receveRadiovalues1 = "";
   var receveRadiovalues3 = "";
   var receveRadiovalues4 = "";
-  // var dropdownvalue = "";
+  var dropdownvalue = "";
+  var month = "";
+  var days = "";
 
   //var RangeValues = "";
   // var RangeValues1 = "";
@@ -246,15 +248,17 @@ class _HoneymoonDestinationsState extends State<HoneymoonDestinations> {
     final SharedPreferences prefs = await _prefs;
 
     setState(() {
-      cat_id = (prefs.getString("cat_id"))!;
+      cat_id = (prefs.getString("cat_id") ?? "");
       cat_name = (prefs.getString("cat_name"))!;
       receveRadiovalues1 = prefs.getString("radiogroup1") ?? "";
       receveRadiovalues3 = (prefs.getString("radiogroup3") ?? "");
-
+      month = (prefs.getString("best_time_for_visit") ?? "");
+      days = (prefs.getString("total_days") ?? "");
       receveRadiovalues4 = (prefs.getString("radiogroup4") ?? "");
-      // dropdownvalue = (prefs.getString("dropdownvalue"))!;
-      //  RangeValues1 = (prefs.getString("RangeValues1"))!;
-      //  RangeValues = (prefs.getString("RangeValues"))!;
+      dropdownvalue = (prefs.getString("dropdownvalue") ?? "");
+
+      //  RangeValues1 = (prefs.getString("RangeValues1") ?? "");
+      //  RangeValues = (prefs.getString("RangeValues") ?? "");
     });
   }
 
@@ -265,7 +269,9 @@ class _HoneymoonDestinationsState extends State<HoneymoonDestinations> {
     print("receveRadiovalues1 : " + receveRadiovalues1);
     print("receveRadiovalues4 : " + receveRadiovalues4);
     print("receveRadiovalues3 : " + receveRadiovalues3);
-    // print("check ${dropdownvalue}");
+    print("check ${dropdownvalue}");
+    print("api month" + month);
+    print(days);
 
     //  print(RangeValues1);
     // print(RangeValues);
@@ -315,17 +321,17 @@ class _HoneymoonDestinationsState extends State<HoneymoonDestinations> {
                 builder: (context, snapshots) {
                   //low to high and high to low data by rahul
 
-                  // if (receveRadiovalues4 == "1") {
-                  //   snapshots.data!.data!.sort((a, b) =>
-                  //       int.parse(a.package.toString())
-                  //           .compareTo(int.parse(b.package.toString())));
-                  //   print("price low to high");
-                  // } else if (receveRadiovalues4 == "2") {
-                  //   print("Condition high to low ");
-                  //   snapshots.data!.data!.sort((a, b) =>
-                  //       int.parse(b.package.toString())
-                  //           .compareTo(int.parse(a.package.toString())));
-                  // }
+                  if (receveRadiovalues4 == "1") {
+                    snapshots.data!.data!.sort((a, b) =>
+                        int.parse(a.package.toString())
+                            .compareTo(int.parse(b.package.toString())));
+                    print("price low to high");
+                  } else if (receveRadiovalues4 == "2") {
+                    print("Condition high to low ");
+                    snapshots.data!.data!.sort((a, b) =>
+                        int.parse(b.package.toString())
+                            .compareTo(int.parse(a.package.toString())));
+                  }
 
                   //  if (receveRadiovalues1 == "1" || receveRadiovalues1 == "2") {
                   //   print("India or Abroad");
@@ -357,9 +363,6 @@ class _HoneymoonDestinationsState extends State<HoneymoonDestinations> {
                           itemCount: snapshots.data!.data?.length,
                           itemBuilder: (context, index) {
                             var server = snapshots.data!.data![index];
-
-                            // if (receveRadiovalues3 == "10000" &&
-                            //     server.package! <= 10000)
 
                             if (receveRadiovalues3 == "") {
                               print("null :" + receveRadiovalues3);
@@ -470,9 +473,6 @@ class _HoneymoonDestinationsState extends State<HoneymoonDestinations> {
                               );
                             } else if (receveRadiovalues3 == "10000") {
                               if (server.package! <= 10000) {
-                                // print("price : " + server.package.toString());S
-                                //  print("10000:" + receveRadiovalues3);
-
                                 print(server.package.toString() +
                                     "<=" +
                                     receveRadiovalues3);
@@ -582,17 +582,132 @@ class _HoneymoonDestinationsState extends State<HoneymoonDestinations> {
                                 );
                               }
                             } else if (receveRadiovalues3.toString() ==
-                                "80000") {
-                              print("ok ok ok ok ");
+                                        "10000 to 20000" &&
+                                    server.package! < 20000 ||
+                                receveRadiovalues3.toString() ==
+                                        "20000 to 40000" &&
+                                    server.package! < 40000 ||
+                                receveRadiovalues3.toString() ==
+                                        "40000 to 60000" &&
+                                    server.package! < 60000 ||
+                                receveRadiovalues3.toString() ==
+                                        "60000 to 80000" &&
+                                    server.package! < 80000) {
+                              print(server.package.toString());
+                              print("all check ?");
+                              // if (server.package! < 20000) {
+                              print("price : " + server.package.toString());
+
+                              return Column(
+                                children: [
+                                  SizedBox(height: 2.h),
+                                  InkWell(
+                                    onTap: () async {
+                                      var destination_id =
+                                          server.sId.toString();
+                                      var destination_name =
+                                          server.destinationName.toString();
+                                      var destination_package =
+                                          server.package.toString();
+                                      var destination_placeToVisit =
+                                          server.placeToVisit.toString();
+
+                                      final SharedPreferences prefs =
+                                          await _prefs;
+
+                                      prefs.setString(
+                                          "destination_id", destination_id);
+                                      prefs.setString(
+                                          "destination_name", destination_name);
+                                      prefs.setString("destination_package",
+                                          destination_package);
+                                      prefs.setString(
+                                          "destination_placeToVisit",
+                                          destination_placeToVisit);
+
+                                      Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  PackagesScreen()));
+                                    },
+                                    child: Stack(
+                                      children: [
+                                        Container(
+                                          width: 97.w,
+                                          height: 18.h,
+                                          decoration: BoxDecoration(
+                                            boxShadow: [
+                                              BoxShadow(
+                                                  color: Colors.grey,
+                                                  blurRadius: 3,
+                                                  offset: Offset(1, 2))
+                                            ],
+                                            color: Color(0xffF7F7F7),
+                                            borderRadius:
+                                                BorderRadius.circular(15),
+                                          ),
+                                        ),
+                                        ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(15),
+                                          child: CachedNetworkImage(
+                                            width: 90.w,
+                                            height: 18.h,
+                                            errorWidget:
+                                                (context, url, error) =>
+                                                    Text(""),
+                                            imageUrl:
+                                                server.placeToVisit.toString(),
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                        Positioned(
+                                          top: 4,
+                                          left: 15,
+                                          child: Text(
+                                            //"MALDIVES",
+                                            server.destinationName.toString(),
+                                            //server.howToReach.toString(),
+                                            style: TextStyle(
+                                                fontSize: 14,
+                                                fontFamily: "SegoeUI",
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.black),
+                                          ),
+                                        ),
+                                        Positioned(
+                                          top: 18,
+                                          left: 90.w,
+                                          child: RotatedBox(
+                                            quarterTurns: 3,
+                                            child: Text(
+                                              //"35,000/Person",
+                                              "₹ " +
+                                                  server.package.toString() +
+                                                  "/Person",
+                                              style: TextStyle(
+                                                  fontSize: 12,
+                                                  fontFamily: "SegoeUI",
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Color(0xffFF7307)),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 1.h,
+                                  ),
+                                ],
+                              );
+                            } else if (receveRadiovalues3 == "80000") {
+                              print(receveRadiovalues3);
                               print(server.package);
-
-                              if (server.package! >= 40000) {
-                                print("price : " + server.package.toString());
-                                //print("10000:" + receveRadiovalues3);
-
-                                // print(server.package.toString() +
-                                //     "<=" +
-                                //     receveRadiovalues3);
+                              if (server.package! >= 60000) {
+                                print(server.package.toString() +
+                                    "<=" +
+                                    receveRadiovalues3);
 
                                 return Column(
                                   children: [
@@ -697,12 +812,12 @@ class _HoneymoonDestinationsState extends State<HoneymoonDestinations> {
                                     ),
                                   ],
                                 );
-                              } else {
-                                print("not ok ");
                               }
-                            } else {
-                              print("data not match... ");
-                            } //item count vali ilne
+                            }
+
+                            {
+                              print(" Data not get...");
+                            } //item count has ended at this line
                           })
                       : Center(child: CircularProgressIndicator());
                 })));

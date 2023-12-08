@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:syt/screens/demo/radiovaluedemo.dart';
+import 'package:syt/screens/demo/pacakgedetaildemooo.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'honeymoondestinationsScreen.dart';

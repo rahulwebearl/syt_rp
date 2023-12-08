@@ -1,4 +1,3 @@
-
 class get_pakege_details_modal {
   int? code;
   String? status;
@@ -78,24 +77,24 @@ class Data {
 
   Data(
       {this.sId,
-        this.name,
-        this.pricePerPerson,
-        this.totalDays,
-        this.totalNights,
-        this.destination,
-        this.destinationCategoryId,
-        this.mealRequired,
-        this.mealType,
-        this.travelBy,
-        this.hotelType,
-        this.moreDetails,
-        this.placeToVisitId,
-        this.includeService,
-        this.excludeService,
-        this.sightseeing,
-        this.place,
-        this.itinaries,
-        this.day});
+      this.name,
+      this.pricePerPerson,
+      this.totalDays,
+      this.totalNights,
+      this.destination,
+      this.destinationCategoryId,
+      this.mealRequired,
+      this.mealType,
+      this.travelBy,
+      this.hotelType,
+      this.moreDetails,
+      this.placeToVisitId,
+      this.includeService,
+      this.excludeService,
+      this.sightseeing,
+      this.place,
+      this.itinaries,
+      this.day});
 
   Data.fromJson(Map<String, dynamic> json) {
     sId = json['_id'];
@@ -106,9 +105,9 @@ class Data {
     destination = json['destination'];
     destinationCategoryId = json['destination_category_id'].cast<String>();
     mealRequired = json['meal_required'].cast<String>();
-    mealType = json['meal_type'];
+    mealType = json['meal_type'] ?? '';
     travelBy = json['travel_by'] ?? '';
-    hotelType = json['hotel_type'].cast<String>() ;
+    hotelType = json['hotel_type'].cast<String>();
     moreDetails = json['more_details'];
     placeToVisitId = json['place_to_visit_id'];
     if (json['include_service'] != null) {
@@ -175,7 +174,6 @@ class Data {
 }
 
 class ExcludeService {
-
   String? serviceName;
 
   ExcludeService({this.serviceName});
@@ -235,13 +233,13 @@ class Itinaries {
 
   Itinaries(
       {this.sId,
-        this.packageId,
-        this.title,
-        this.day,
-        this.activity,
-        this.photo,
-        this.hotelName,
-        this.iV});
+      this.packageId,
+      this.title,
+      this.day,
+      this.activity,
+      this.photo,
+      this.hotelName,
+      this.iV});
 
   Itinaries.fromJson(Map<String, dynamic> json) {
     sId = json['_id'];
@@ -268,20 +266,16 @@ class Itinaries {
   }
 }
 
-
-
-
-
 // class get_pakege_details_modal {
 //   int? code;
 //   String? status;
 //   String? message;
 //   Metadata? metadata;
 //   List<Data>? data;
-//
+
 //   get_pakege_details_modal(
 //       {this.code, this.status, this.message, this.metadata, this.data});
-//
+
 //   get_pakege_details_modal.fromJson(Map<String, dynamic> json) {
 //     code = json['code'];
 //     status = json['status'];
@@ -296,7 +290,7 @@ class Itinaries {
 //       });
 //     }
 //   }
-//
+
 //   Map<String, dynamic> toJson() {
 //     final Map<String, dynamic> data = new Map<String, dynamic>();
 //     data['code'] = this.code;
@@ -311,23 +305,23 @@ class Itinaries {
 //     return data;
 //   }
 // }
-//
+
 // class Metadata {
 //   int? length;
-//
+
 //   Metadata({this.length});
-//
+
 //   Metadata.fromJson(Map<String, dynamic> json) {
 //     length = json['length'];
 //   }
-//
+
 //   Map<String, dynamic> toJson() {
 //     final Map<String, dynamic> data = new Map<String, dynamic>();
 //     data['length'] = this.length;
 //     return data;
 //   }
 // }
-//
+
 // class Data {
 //   String? sId;
 //   String? name;
@@ -344,24 +338,24 @@ class Itinaries {
 //   List<Place>? place;
 //   List<Itinaries>? itinaries;
 //   String? day;
-//
+
 //   Data(
 //       {this.sId,
-//         this.name,
-//         this.pricePerPerson,
-//         this.totalDays,
-//         this.totalNights,
-//         this.mealRequired,
-//         this.travelBy,
-//         this.hotelType,
-//         this.moreDetails,
-//         this.includeService,
-//         this.excludeService,
-//         this.sightseeing,
-//         this.place,
-//         this.itinaries,
-//         this.day});
-//
+//       this.name,
+//       this.pricePerPerson,
+//       this.totalDays,
+//       this.totalNights,
+//       this.mealRequired,
+//       this.travelBy,
+//       this.hotelType,
+//       this.moreDetails,
+//       this.includeService,
+//       this.excludeService,
+//       this.sightseeing,
+//       this.place,
+//       this.itinaries,
+//       this.day});
+
 //   Data.fromJson(Map<String, dynamic> json) {
 //     sId = json['_id'];
 //     name = json['name'];
@@ -399,7 +393,7 @@ class Itinaries {
 //     }
 //     day = json['day'];
 //   }
-//
+
 //   Map<String, dynamic> toJson() {
 //     final Map<String, dynamic> data = new Map<String, dynamic>();
 //     data['_id'] = this.sId;
@@ -430,56 +424,55 @@ class Itinaries {
 //     return data;
 //   }
 // }
-//
+
 // class IncludeService {
 //   String? serviceName;
-//
+
 //   IncludeService({this.serviceName});
-//
+
 //   IncludeService.fromJson(Map<String, dynamic> json) {
 //     serviceName = json['service_name'];
 //   }
-//
+
 //   Map<String, dynamic> toJson() {
 //     final Map<String, dynamic> data = new Map<String, dynamic>();
 //     data['service_name'] = this.serviceName;
 //     return data;
 //   }
 // }
-//
-//
+
 // class ExcludeService {
 //   String? serviceName;
-//
+
 //   ExcludeService({this.serviceName});
-//
+
 //   ExcludeService.fromJson(Map<String, dynamic> json) {
 //     serviceName = json['service_name'];
 //   }
-//
+
 //   Map<String, dynamic> toJson() {
 //     final Map<String, dynamic> data = new Map<String, dynamic>();
 //     data['service_name'] = this.serviceName;
 //     return data;
 //   }
 // }
-//
+
 // class Place {
 //   String? photo;
-//
+
 //   Place({this.photo});
-//
+
 //   Place.fromJson(Map<String, dynamic> json) {
 //     photo = json['photo'];
 //   }
-//
+
 //   Map<String, dynamic> toJson() {
 //     final Map<String, dynamic> data = new Map<String, dynamic>();
 //     data['photo'] = this.photo;
 //     return data;
 //   }
 // }
-//
+
 // class Itinaries {
 //   String? sId;
 //   String? packageId;
@@ -489,17 +482,17 @@ class Itinaries {
 //   String? photo;
 //   String? hotelName;
 //   int? iV;
-//
+
 //   Itinaries(
 //       {this.sId,
-//         this.packageId,
-//         this.title,
-//         this.day,
-//         this.activity,
-//         this.photo,
-//         this.hotelName,
-//         this.iV});
-//
+//       this.packageId,
+//       this.title,
+//       this.day,
+//       this.activity,
+//       this.photo,
+//       this.hotelName,
+//       this.iV});
+
 //   Itinaries.fromJson(Map<String, dynamic> json) {
 //     sId = json['_id'];
 //     packageId = json['package_id'];
@@ -510,7 +503,7 @@ class Itinaries {
 //     hotelName = json['hotel_name'];
 //     iV = json['__v'];
 //   }
-//
+
 //   Map<String, dynamic> toJson() {
 //     final Map<String, dynamic> data = new Map<String, dynamic>();
 //     data['_id'] = this.sId;

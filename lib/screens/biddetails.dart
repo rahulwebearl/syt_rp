@@ -510,7 +510,7 @@ class _BidDetailsState extends State<BidDetails> {
                   children: [
                     Column(children: [
                       Container(
-                        height: 14.h,
+                        height: 16.h,
                         width: 90.w,
                         decoration: BoxDecoration(
                           boxShadow: [

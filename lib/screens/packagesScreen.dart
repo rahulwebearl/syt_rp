@@ -796,9 +796,11 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sizer/sizer.dart';
 import 'package:syt/Api.dart';
 import 'package:syt/models/get_destinationdata_model.dart';
+import 'package:syt/screens/demo/pacakgedetaildemooo.dart';
 import 'package:syt/screens/myplaningScreen.dart';
 import 'package:syt/screens/packagedetailsScreen.dart';
 
+import 'packagedetailsScreenold.dart';
 import 'top_trending_packages_viewall.dart';
 
 class PackagesScreen extends StatefulWidget {
@@ -836,6 +838,7 @@ class _PackagesScreenState extends State<PackagesScreen> {
         body: FutureBuilder<get_destinationdata_model>(
             future: GetDestinationData().destinationdatalist(destination_id),
             builder: (context, snapshots) {
+              print("leloe::[[]] ${snapshots}");
               return (snapshots.hasData)
                   ? ListView.builder(
                       itemCount: snapshots.data?.data?.length,
@@ -1081,7 +1084,10 @@ class _PackagesScreenState extends State<PackagesScreen> {
                                                                 prefs.setString(
                                                                     "Packages_id",
                                                                     Packages_id);
-
+                                                                print(
+                                                                    "RPIDK1 -${Packages_id}");
+                                                                print(
+                                                                    "RPIDCK ${server?.packages![0].sId.toString()}");
                                                                 if (server!
                                                                         .packages![
                                                                             0]

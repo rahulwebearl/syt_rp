@@ -34,6 +34,8 @@ import 'models/getmostloveddestinations_catagory_model.dart';
 import 'models/gettravelby_catagory_model.dart';
 import 'models/mobile_no_mach_model.dart';
 import 'models/mostLovedDisplayModel.dart';
+import 'models/newdemo.dart';
+import 'models/newdemo2.dart';
 import 'models/policy_model.dart';
 import 'models/safetyinfo_model.dart';
 import 'models/submit_review_model.dart';
@@ -327,6 +329,132 @@ class GetPackageDetails {
     return get_pakege_details_modal.fromJson(data);
   }
 }
+
+// class GetPacakgeDetails {
+//   GetPacakgeDetails();
+//   Future<List<TravelPackagess>> pakegedetailsList(
+//       String getpackagedetails_api) async {
+//     try {
+//       var url =
+//           (LURL + "/package/getPackageData?package_id=$getpackagedetails_api");
+//       final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+//       final SharedPreferences prefs = await _prefs;
+
+//       http.Response response = await http.get(
+//         Uri.parse(url),
+//         headers: {
+//           "Authorization": prefs.getString("UserId") ?? "",
+//         },
+//       );
+//       if (response.statusCode == 200) {
+//         final datas = json.decode(response.body) as List<dynamic>;
+//         List<TravelPackagess> travelpkg = [];
+//         for (var items in datas) {
+//           final id = items['_id'];
+//           final name = items['name'];
+//           final pricePerPerson = items['pricePerPerson'];
+//           final pricePerPersons = pricePerPerson is int
+//               ? pricePerPerson
+//               : pricePerPerson is String
+//                   ? int.parse(pricePerPerson) ?? 100 // 100 is default
+//                   : 100;
+//           final totalDays = items['totalDays'];
+//           final totalDay = totalDays is int
+//               ? totalDays
+//               : totalDays is String
+//                   ? int.parse(totalDays) ?? 5
+//                   : 5;
+//           final totalNights = items['totalNights'];
+//           final totalNight = totalNights is int
+//               ? totalNights
+//               : totalNights is String
+//                   ? int.parse(totalNights) ?? 5
+//                   : 5;
+
+//           List mealRequired = [];
+//           final meal_required = items['mealRequired'] as List<dynamic>;
+//           if (mealRequired.isNotEmpty) {
+//             final mealRequiredit = mealRequired[0] as Map<String, dynamic>;
+//           }
+
+//           final mealType = items['mealType'];
+//           final travelBy = items['travelBy'];
+//           final sightseeing = items['sightseeing'];
+
+//           List hotelTypes = [];
+//           final hotel_type = items['hotelType'] as List<dynamic>;
+//           if (hotelTypes.isNotEmpty) {
+//             final hotelType = hotelTypes[0] as Map<String, dynamic>;
+//           }
+//           final moreDetails = items['moreDetails'];
+//           final placeToVisitId = items['placeToVisitId'];
+//           List includeService = [];
+//           final include_service = items['include_service'] as List<dynamic>;
+//           if (includeService.isNotEmpty) {
+//             final includeService = include_service[0] as Map<String, dynamic>;
+//           }
+//           List excludeservice = [];
+//           if (excludeservice.isNotEmpty) {
+//             final exclude_service = items['exclude_service'] as List<dynamic>;
+//           }
+//           List destinationCategoryId = [];
+//           if (destinationCategoryId.isNotEmpty) {
+//             final destination_category_id =
+//                 items['destination_category_id'] as List<dynamic>;
+//           }
+
+//           List destination = [];
+
+//           final destination1 = items['Destination'] as List<dynamic>;
+//           if (destination1.isNotEmpty) {
+//             final destination = destination1[0] as Map<String, dynamic>;
+
+//             destination.forEach((key, value) {
+//               final id = items['id'];
+//               final destinationName = items['destinationName'];
+//               final howToReach = items['howToReach'];
+//               final aboutDestination = items['aboutDestination'];
+//               final bestTimeForVisit = items['bestTimeForVisit'];
+//               final mostLovedDestination = items['mostLovedDestination'];
+
+//               List destinationCategoryId = [];
+//               final destination_category_id =
+//                   items['destination_category_id'] as List<dynamic>;
+//               if (destinationCategoryId.isNotEmpty) {
+//                 final destinationCategoryId = items['destination_category_id'];
+//               }
+//             });
+//           }
+//           travelpkg.add(TravelPackagess(
+//               id: id,
+//               pricePerPerson: pricePerPersons,
+//               totalDays: totalDays,
+//               totalNights: totalNight,
+//               name: name,
+//               sightseeing: sightseeing,
+//               mealType: mealType,
+//               travelBy: travelBy,
+//               hotelType: [],
+//               moreDetails: moreDetails,
+//               placeToVisitId: placeToVisitId,
+//               includeService: [],
+//               excludeService: [],
+//               mealRequired: [],
+//               destinations: [],
+//               places: [],
+//               destinationCategoryId: [],
+//               day: '',
+//               itineraries: []));
+//         }
+//         return travelpkg;
+//       } else {
+//         throw Exception(response.statusCode);
+//       }
+//     } catch (e) {
+//       throw Exception(e);
+//     }
+//   }
+// }
 
 class AddRequirement {
   AddRequirement();

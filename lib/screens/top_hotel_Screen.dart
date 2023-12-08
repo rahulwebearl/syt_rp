@@ -43,7 +43,7 @@ class _HotelScreenState extends State<HotelScreen> {
         builder: (context, snapshots) {
           return (snapshots.hasData)
               ? ListView.builder(
-                  itemCount: snapshots.data?.data?.length,
+                  itemCount: snapshots.data?.data?.length ?? 0,
                   itemBuilder: (context, index) {
                     var server = snapshots.data?.data?[index];
                     return Column(
